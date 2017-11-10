@@ -1,6 +1,6 @@
 NAME_NM = ft_nm
 
-SRC_NM = src/main.c src/funcs.c src/nm.c
+SRC_NM = nm/main.c nm/funcs.c nm/nm.c
 
 FLAGS = clang -Wall -Werror -Wextra -g3 -I includes -o
 
