@@ -2,7 +2,7 @@ NAME_NM = ft_nm
 
 SRC_NM = nm/main.c nm/funcs.c nm/nm.c
 
-FLAGS = clang -Wall -Werror -Wextra -g3 -I includes -o
+FLAGS = gcc -m64 -Wall -Werror -Wextra -g -I includes -o
 
 all: $(NAME_NM)
 
@@ -13,10 +13,10 @@ $(NAME_NM): ft_lib $(SRC_NM)
 	$(FLAGS) $(NAME_NM) libft/libft.a $(SRC_NM)
 
 clean:
-	make -C libf/ clean
+	make -C libft/ clean
 
 fclean: clean
-	make -C libf/ fclean
+	make -C libft/ fclean
 	rm -f $(NAME_NM)
 
 re: fclean all

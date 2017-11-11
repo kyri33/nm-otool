@@ -13,17 +13,15 @@ void	ft_nm(char *file)
 {
 	int		fd;
 	t_map	*map;
-	char	*test;
+	void	*test;
 
 	if ((fd = open(file, O_RDWR)) <= 0)
 		return (perror("Error opening file"));
 	map = (t_map*)malloc(sizeof(t_map));
 	map->name = file;
 	map->size = get_file_size(fd);
-	test = (char*)mmap(0, map->size, PROT_READ, MAP_PRIVATE, fd, 0);
-	for (int i = 0; i < map->size; i++)
-	{
-		if (ft_isprint(test[i]))
-			ft_putchar(test[i]);
-	}
+	test = mmap(0, map->size, PROT_READ, MAP_PRIVATE, fd, 0);
+	for (int i = 0; i < 50; i++)
+		printf("%02x ", ((uint8_t*)test)[i]);
+	printf("\n");
 }
